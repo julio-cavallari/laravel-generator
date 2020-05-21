@@ -1,0 +1,61 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class AddPermissionsPageRoleTo$MODEL_NAME_PLURAL_CAMEL$ extends Migration
+{
+
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        $permissions = [
+            [
+                'name' => '$MODEL_NAME_PLURAL_CAMEL$.index',
+                'display_name' => 'Listar',
+                'category' => '$MODEL_NAME_PLURAL_HUMAN$'
+            ],
+            [
+                'name' => '$MODEL_NAME_PLURAL_CAMEL$.show',
+                'display_name' => 'Visualizar',
+                'category' => '$MODEL_NAME_PLURAL_HUMAN$'
+            ],
+            [
+                'name' => '$MODEL_NAME_PLURAL_CAMEL$.create',
+                'display_name' => 'Criar',
+                'category' => '$MODEL_NAME_PLURAL_HUMAN$'
+            ],
+            [
+                'name' => '$MODEL_NAME_PLURAL_CAMEL$.edit',
+                'display_name' => 'Editar',
+                'category' => '$MODEL_NAME_PLURAL_HUMAN$'
+            ],
+            [
+                'name' => '$MODEL_NAME_PLURAL_CAMEL$.destroy',
+                'display_name' => 'Excluir',
+                'category' => '$MODEL_NAME_PLURAL_HUMAN$'
+            ],
+        ];
+
+        $admin = App\Models\User::where('email', 'guilherme@revelare.com.br')->first();
+
+        foreach ($permissions as $permission) {
+            $createdPermission = App\Models\Permission::updateOrCreate($permission);
+            $admin->attachPermission($createdPermission);
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        App\Models\Permission::where('name', 'like', '$MODEL_NAME_PLURAL_CAMEL$.%')->delete();
+    }
+}
