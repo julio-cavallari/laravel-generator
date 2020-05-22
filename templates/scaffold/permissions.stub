@@ -41,11 +41,11 @@ class AddPermissionsPageRoleTo$MODEL_NAME_PLURAL_CAMEL$ extends Migration
             ],
         ];
 
-        $admin = App\Models\User::where('email', 'guilherme@revelare.com.br')->first();
+        $role = App\Models\Role::first();
 
         foreach ($permissions as $permission) {
             $createdPermission = App\Models\Permission::updateOrCreate($permission);
-            $admin->attachPermission($createdPermission);
+            $role->attachPermission($createdPermission);
         }
     }
 
