@@ -48,6 +48,7 @@ class ViewGenerator extends BaseGenerator
             $viewsToBeGenerated = explode(',', $this->commandData->getOption('views'));
 
             if (in_array('index', $viewsToBeGenerated)) {
+                $this->generateSearch();
                 $this->generateTable();
                 $this->generateIndex();
             }
@@ -69,6 +70,7 @@ class ViewGenerator extends BaseGenerator
                 $this->generateShow();
             }
         } else {
+            $this->generateSearch();
             $this->generateTable();
             $this->generateIndex();
             $this->generateFields();
@@ -192,6 +194,23 @@ class ViewGenerator extends BaseGenerator
         }
 
         return implode(infy_nl_tab(1, 2), $headerFields);
+    }
+
+    private function generateSearch()
+    {
+        $templateName = 'search';
+
+        if ($this->commandData->isLocalizedTemplates()) {
+            $templateName .= '_locale';
+        }
+
+        $templateData = get_template('scaffold.views.'.$templateName, $this->templateType);
+
+        $templateData = fill_template($this->commandData->dynamicVars, $templateData);
+
+        FileUtil::createFile($this->path, 'search.blade.php', $templateData);
+
+        $this->commandData->commandInfo('search.blade.php created');
     }
 
     private function generateIndex()

@@ -37,6 +37,18 @@ class $MODEL_NAME$Controller extends AppBaseController
     }
 
     /**
+     * Show the form for creating a new Exemplo.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.edit', [
+            '$MODEL_NAME_CAMEL$' => new $$MODEL_NAME_CAMEL$()
+        ]);
+    }
+
+    /**
      * Show the form for creating a new $MODEL_NAME$.
      *
      * @return Factory|View
@@ -63,7 +75,7 @@ class $MODEL_NAME$Controller extends AppBaseController
     public function show($MODEL_NAME$ $$MODEL_NAME_CAMEL$)
     {
         return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.show', [
-                'MODEL_NAME_CAMEL$' => $$MODEL_NAME_CAMEL$
+                '%MODEL_NAME_CAMEL$' => $$MODEL_NAME_CAMEL$
         ]);
     }
 

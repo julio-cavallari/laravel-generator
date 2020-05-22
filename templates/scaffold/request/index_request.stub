@@ -37,7 +37,7 @@ class Index$MODEL_NAME$Request extends FormRequest
      *
      * @return array
      */
-    public function attributes(): array()
+    public function attributes(): array
     {
         $rules_labels = [
             'query' => 'Campo de Busca',

@@ -61,7 +61,7 @@ class ControllerGenerator extends BaseGenerator
             if ($paginate) {
                 $templateData = str_replace('$RENDER_TYPE$', 'paginate('.$paginate.')', $templateData);
             } else {
-                $templateData = str_replace('$RENDER_TYPE$', 'all()', $templateData);
+                $templateData = str_replace('$RENDER_TYPE$', 'get()', $templateData);
             }
         }
 
