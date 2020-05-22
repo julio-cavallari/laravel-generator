@@ -2,7 +2,7 @@
 
 namespace $NAMESPACE_MODEL$;
 
-use $NAMESPACE_MODEL_EXTEND$ as Model;
+use Illuminate\Database\Eloquent\Model;
 $SOFT_DELETE_IMPORT$
 use OwenIt\Auditing\Contracts\Auditable;
 use App\Traits\SearchableTrait;
@@ -55,7 +55,7 @@ $PRIMARY$
     protected $searchable = [
         'columns' => [
             $FIELDS_SEARCHABLE$
-        ],
+        ]
     ];
 
     $RELATIONS$

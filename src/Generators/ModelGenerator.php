@@ -85,7 +85,7 @@ class ModelGenerator extends BaseGenerator
 
         $templateData = str_replace('$CAST$', implode(','.infy_nl_tab(1, 2), $this->generateCasts()), $templateData);
 
-        $templateData = str_replace('$FIELDS_SEARCHABLE', implode(','.infy_nl_tab(1, 2), $this->generateSearchable()), $templateData);
+        $templateData = str_replace('$FIELDS_SEARCHABLE$', implode(','.infy_nl_tab(1, 3), $this->generateSearchable()), $templateData);
 
         $templateData = str_replace(
             '$RELATIONS$',
