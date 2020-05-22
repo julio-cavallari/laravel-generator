@@ -60,30 +60,28 @@ class GeneratorFieldsInputUtil
 
     public static function prepareKeyValueArrayStr($arr)
     {
-        $arrStr = '[';
-        foreach ($arr as $key => $item) {
-            $arrStr .= "'$item' => '$key', ";
+        $arrStr = '';
+        if (count($arr) > 0) {
+            foreach ($arr as $key => $item) {
+                $arrStr .= "'$item' => '$key', ";
+            }
+            $arrStr = substr($arrStr, 0, -2);
         }
 
-        $arrStr = substr($arrStr, 0, strlen($arrStr) - 2);
-
-        $arrStr .= ']';
-
-        return $arrStr;
+        return '[' . $arrStr . ']';
     }
 
     public static function prepareValuesArrayStr($arr)
     {
-        $arrStr = '[';
-        foreach ($arr as $item) {
-            $arrStr .= "'$item', ";
+        $arrStr = '';
+        if (count($arr) > 0) {
+            foreach ($arr as $item) {
+                $arrStr .= "'$item', ";
+            }
+            $arrStr = substr($arrStr, 0, -2);
         }
 
-        $arrStr = substr($arrStr, 0, strlen($arrStr) - 2);
-
-        $arrStr .= ']';
-
-        return $arrStr;
+        return '[' . $arrStr . ']';
     }
 
     public static function prepareKeyValueArrFromLabelValueStr($values)

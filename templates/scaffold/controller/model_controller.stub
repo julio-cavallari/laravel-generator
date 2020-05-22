@@ -37,14 +37,14 @@ class $MODEL_NAME$Controller extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new Exemplo.
+     * Show the form for creating a new $MODEL_NAME$.
      *
      * @return Response
      */
     public function create()
     {
-        return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.edit', [
-            '$MODEL_NAME_CAMEL$' => new $$MODEL_NAME_CAMEL$()
+        return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.create', [
+            '$MODEL_NAME_CAMEL$' => new $MODEL_NAME$()
         ]);
     }
 
