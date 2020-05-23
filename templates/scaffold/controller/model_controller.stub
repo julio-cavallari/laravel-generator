@@ -29,7 +29,7 @@ class $MODEL_NAME$Controller extends AppBaseController
         /** @var $MODEL_NAME$ $$MODEL_NAME_PLURAL_CAMEL$ */
         $$MODEL_NAME_PLURAL_CAMEL$ = $MODEL_NAME$::when(Arr::has($requestSanitized, 'query'), function ($query) use ($requestSanitized) {
             $query->search($requestSanitized['query']);
-        })->$RENDER_TYPE$;
+        })->latest()->$RENDER_TYPE$;
 
         return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index', [
             '$MODEL_NAME_PLURAL_CAMEL$' => $$MODEL_NAME_PLURAL_CAMEL$
