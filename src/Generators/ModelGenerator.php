@@ -290,6 +290,7 @@ class ModelGenerator extends BaseGenerator
     public function generateUniqueRules()
     {
         $tableNameSingular = Str::singular($this->commandData->config->tableName);
+
         $uniqueRules = '';
         foreach ($this->generateRules() as $rule) {
             if (Str::contains($rule, 'unique:')) {

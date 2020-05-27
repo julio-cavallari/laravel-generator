@@ -75,7 +75,7 @@ class $MODEL_NAME$Controller extends AppBaseController
     public function show($MODEL_NAME$ $$MODEL_NAME_CAMEL$)
     {
         return view('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.show', [
-                '%MODEL_NAME_CAMEL$' => $$MODEL_NAME_CAMEL$
+                '$MODEL_NAME_CAMEL$' => $$MODEL_NAME_CAMEL$
         ]);
     }
 

@@ -26,8 +26,8 @@ class Index$MODEL_NAME$Request extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'query' => 'nullable',
-            'page' => 'nullable|numeric',
+            'query' => 'nullable|string',
+            'page' => 'nullable|integer',
         ];
         return $rules;
     }
