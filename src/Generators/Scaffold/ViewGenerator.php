@@ -265,23 +265,31 @@ class ViewGenerator extends BaseGenerator
 
             $validations = explode('|', $field->validations);
             $minMaxRules = '';
+            $required = 'false';
             foreach ($validations as $validation) {
-                if (!Str::contains($validation, ['max:', 'min:'])) {
+
+                if (Str::contains($validation, ['required'])) {
+                    $required = 'true';
                     continue;
                 }
 
-                $validationText = substr($validation, 0, 3);
-                $sizeInNumber = substr($validation, 4);
+                if (Str::contains($validation, ['max:', 'min:'])) {
+                    $validationText = substr($validation, 0, 3);
+                    $sizeInNumber = substr($validation, 4);
 
-                $sizeText = ($validationText == 'min') ? 'minlength' : 'maxlength';
-                if ($field->htmlType == 'number') {
-                    $sizeText = $validationText;
+                    $sizeText = ($validationText == 'min') ? 'minlength' : 'maxlength';
+                    if ($field->htmlType == 'number') {
+                        $sizeText = $validationText;
+                    }
+
+                    $size = "{$sizeText}= \"{$sizeInNumber}\"";
+                    $minMaxRules .= $size;
+                    continue;
                 }
 
-                $size = ",'$sizeText' => $sizeInNumber";
-                $minMaxRules .= $size;
             }
-            $this->commandData->addDynamicVariable('$SIZE$', $minMaxRules);
+            $this->commandData->addDynamicVariable('$FIELD_SIZE$', $minMaxRules);
+            $this->commandData->addDynamicVariable('$FIELD_REQUIRED$', $required);
 
             $fieldTemplate = HTMLFieldGenerator::generateHTML($field, $this->templateType, $localized);
 
