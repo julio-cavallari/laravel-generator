@@ -50,7 +50,7 @@ class $MODEL_NAME$APIController extends AppBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return $this->sendError('$MODEL_NAME_HUMAN$ not found');
+            return $this->sendError('$MODEL_NAME_HUMAN$ não encontrado');
         }
 
         return $this->sendResponse($$MODEL_NAME_CAMEL$->toArray(), '$MODEL_NAME_HUMAN$ retrieved successfully');
@@ -65,12 +65,12 @@ class $MODEL_NAME$APIController extends AppBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return $this->sendError('$MODEL_NAME_HUMAN$ not found');
+            return $this->sendError('$MODEL_NAME_HUMAN$ não encontrado');
         }
 
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->update($input, $id);
 
-        return $this->sendResponse($$MODEL_NAME_CAMEL$->toArray(), '$MODEL_NAME$ updated successfully');
+        return $this->sendResponse($$MODEL_NAME_CAMEL$->toArray(), '$MODEL_NAME$ atualizado com sucesso');
     }
 
     $DOC_DESTROY$
@@ -80,11 +80,11 @@ class $MODEL_NAME$APIController extends AppBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return $this->sendError('$MODEL_NAME_HUMAN$ not found');
+            return $this->sendError('$MODEL_NAME_HUMAN$ não encontrado');
         }
 
         $$MODEL_NAME_CAMEL$->delete();
 
-        return $this->sendSuccess('$MODEL_NAME_HUMAN$ deleted successfully');
+        return $this->sendSuccess('$MODEL_NAME_HUMAN$ deletado com sucesso');
     }
 }

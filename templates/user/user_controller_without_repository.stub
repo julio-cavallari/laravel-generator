@@ -52,7 +52,7 @@ class UserController extends AppBaseController
         /** @var User $user */
         $user = User::create($input);
 
-        Flash::success('User saved successfully.');
+        Flash::success('User salvo com sucesso.');
 
         return redirect(route('users.index'));
     }
@@ -70,7 +70,7 @@ class UserController extends AppBaseController
         $user = User::find($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User não encontrado');
 
             return redirect(route('users.index'));
         }
@@ -91,7 +91,7 @@ class UserController extends AppBaseController
         $user = User::find($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User não encontrado');
 
             return redirect(route('users.index'));
         }
@@ -113,7 +113,7 @@ class UserController extends AppBaseController
         $user = User::find($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User não encontrado');
 
             return redirect(route('users.index'));
         }
@@ -126,7 +126,7 @@ class UserController extends AppBaseController
         $user->fill($input);
         $user->save();
 
-        Flash::success('User updated successfully.');
+        Flash::success('User atualizado com sucesso.');
 
         return redirect(route('users.index'));
     }
@@ -146,14 +146,14 @@ class UserController extends AppBaseController
         $user = User::find($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User não encontrado');
 
             return redirect(route('users.index'));
         }
 
         $user->delete();
 
-        Flash::success('User deleted successfully.');
+        Flash::success('User deletado com sucesso.');
 
         return redirect(route('users.index'));
     }
