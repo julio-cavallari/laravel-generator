@@ -3,4 +3,8 @@
  * @package $NAMESPACE_MODEL$
  * @version $GENERATE_DATE$
  *
+ * @property integer $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property \Carbon\Carbon $deleted_at
 $PHPDOC$ */
