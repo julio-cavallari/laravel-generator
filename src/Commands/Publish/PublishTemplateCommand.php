@@ -55,7 +55,7 @@ class PublishTemplateCommand extends PublishBaseCommand
     {
         $templateType = config('infyom.laravel_generator.templates', 'argon-templates');
 
-        $templatesPath = base_path('vendor/gpedon/'.$templateType.'/templates/scaffold');
+        $templatesPath = base_path('vendor/julio-cavallari/'.$templateType.'/templates/scaffold');
 
         return $this->publishDirectory($templatesPath, $this->templatesDir.'scaffold', 'infyom-generator-templates/scaffold', true);
     }
@@ -65,7 +65,7 @@ class PublishTemplateCommand extends PublishBaseCommand
      */
     public function publishSwaggerTemplates()
     {
-        $templatesPath = base_path('vendor/gpedon/swagger-generator/templates');
+        $templatesPath = base_path('vendor/julio-cavallari/swagger-generator/templates');
 
         return $this->publishDirectory($templatesPath, $this->templatesDir, 'swagger-generator', true);
     }

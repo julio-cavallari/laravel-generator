@@ -100,7 +100,7 @@ if (!function_exists('get_template_file_path')) {
             return $path;
         }
 
-        return base_path('vendor/gpedon/'.$templateType.'/templates/'.$templateName.'.stub');
+        return base_path('vendor/julio-cavallari/'.$templateType.'/templates/'.$templateName.'.stub');
     }
 }
 
