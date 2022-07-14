@@ -1,5 +1,10 @@
 # Release Notes
 
+## 14th Jul 202
+
+#### New Features
+- Added support to [Laravel 9](https://laravel.com/docs/9.x/releases)
+
 ## 20th Apr 2016
 
 #### New Features
