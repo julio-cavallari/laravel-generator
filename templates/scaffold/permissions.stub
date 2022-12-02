@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddPermissionsPageRoleTo$MODEL_NAME_PLURAL_CAMEL$ extends Migration
+return new class extends Migration
 {
 
     /**
@@ -58,4 +59,4 @@ class AddPermissionsPageRoleTo$MODEL_NAME_PLURAL_CAMEL$ extends Migration
     {
         App\Models\Permission::where('name', 'like', '$MODEL_NAME_PLURAL_CAMEL$.%')->delete();
     }
-}
+};

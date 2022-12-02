@@ -28,7 +28,10 @@ class MigrationGenerator extends BaseGenerator
 
         $templateData = fill_template($this->commandData->dynamicVars, $templateData);
 
-        $templateData = str_replace('$FIELDS$', $this->generateFields(), $templateData);
+        $fields = $this->generateFields();
+        $fields = str_replace('increments(', 'id(', $fields);
+
+        $templateData = str_replace('$FIELDS$', $fields, $templateData);
 
         $tableName = $this->commandData->dynamicVars['$TABLE_NAME$'];
 
